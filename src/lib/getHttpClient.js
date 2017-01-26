@@ -1,5 +1,6 @@
-import axios from "axios";
+// import axios from "axios";
 import { merge, parse } from "./cookies";
+import "isomorphic-fetch";
 
 /**
  * @param {Object} options axios configuration options
@@ -8,7 +9,7 @@ import { merge, parse } from "./cookies";
  * https://github.com/mzabriskie/axios#request-config
  * @param {axios} [httpClient] optionally override axios (used for tests/mocking)
  */
-export default function getHttpClient (options={}, req, res, httpClient=axios) {
+export default function getHttpClient (options={}, req, res, httpClient=fetch) {
   const { headers, modifyInstance, ...httpConfig } = options;
   let client;
 
